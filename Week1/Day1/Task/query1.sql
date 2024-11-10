@@ -1,0 +1,1 @@
+select FIRST_NAME  AS WORKER_NAME from learn.Worker;
