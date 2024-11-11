@@ -10,7 +10,6 @@
 
     <!-- Define your beans here -->
 
-
     <bean id="circle"
           class="com.task.ioc.Circle">
     </bean>

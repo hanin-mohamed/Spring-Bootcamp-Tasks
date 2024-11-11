@@ -1,8 +1,19 @@
 package com.task.ioc;
 
 public class Circle implements Shape{
+    int radius;
+
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
     @Override
-    public double getArea(int radius) {
+    public double getArea() {
         return radius *radius*(22/7);
     }
 }
