@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- Load properties from application.properties -->
+    <context:property-placeholder location="application.properties"/>
+
+    <!-- Define Database operations bean -->
+    <bean id="databaseObject" class="com.practice.bean.DatabaseUtil">
+          <property name="url" value="${database.url}"/>
+          <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
+
+    </bean>
+
+    <!-- Define your beans here -->
+    <bean id="draw2DBean" class="com.practice.bean.Draw2D" />
+
+    <bean id="circleBean" class="com.practice.bean.Circle">
+       <!-- <constructor-arg ref="draw2DBean"/>  -->
+        <constructor-arg index="0" ref="databaseObject"/>
+        <constructor-arg index="1" value="${database.username}"/>
+    </bean>
+    <bean id="rectangleBean" class="com.practice.bean.Rectangle">
+        <property name="draw2D" ref="draw2DBean"/>
+        <property name="databaseUtil" ref="databaseObject"/>
+    </bean>
+
+
+</beans>
+
+
+
+
+
