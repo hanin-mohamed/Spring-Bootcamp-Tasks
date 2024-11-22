@@ -22,9 +22,19 @@ public class Rectangle implements Shape {
 
     @Override
     public void  insertShape(String name){
-        System.out.println("connect to database with url "+databaseUtil.getUrl());
-        System.out.println("Username: "+databaseUtil.getUsername());
-        System.out.println("Inserting Shape : "+name);
+       System.out.println("Inserting Shape : "+name);
     }
+
+    @Override
+    public void connectToDatabase() {
+        System.out.println("init method called:\n connect to database with url "+databaseUtil.getUrl());
+        System.out.println("Username: "+databaseUtil.getUsername());
+    }
+
+    @Override
+    public void disconnectFromDatabase() {
+        System.out.println("Destroy method called:\n disconnect from database with url "+databaseUtil.getUrl());
+    }
+
 
 }
