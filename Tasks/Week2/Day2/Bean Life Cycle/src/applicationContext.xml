@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- Load properties from applicationContext.properties-->
+    <context:property-placeholder location="application.properties"/>
+
+    <bean id="databaseBean" class="com.dependencyinjection.bean.DatabaseUtil">
+        <property name="url" value="${database.url}"/>
+        <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
+    </bean>
+
+
+    <bean id="draw2DBean" class="com.dependencyinjection.bean.Draw2D" />
+    <bean id="draw3DBean" class="com.dependencyinjection.bean.Draw3D" />
+
+    <!--circle constructor bean-->
+    <bean id="circleBean" class="com.dependencyinjection.bean.Circle" init-method="connectToDatabase" destroy-method="disconnectFromDatabase">
+       <!-- database constructor injection for circle  -->
+        <constructor-arg index="0" ref="draw2DBean"/>
+        <constructor-arg index="1" ref="draw3DBean"/>
+        <constructor-arg index="2" ref="databaseBean"/>
+        <constructor-arg index="3" value="${database.username}"/>
+
+    </bean>
+
+    <!--square setter (property) bean-->
+    <bean id="squareBean" class="com.dependencyinjection.bean.Square" scope="prototype" init-method="connectToDatabase" destroy-method="disconnectFromDatabase">
+        <property name="draw2D" ref="draw2DBean"/>
+        <property name="draw3D" ref="draw3DBean"/>
+        <property name="databaseUtil" ref="databaseBean"/>
+
+    </bean>
+</beans>
+
+
+
+
+

@@ -25,8 +25,7 @@
     <bean id="circleBean" class="com.practice.bean.Circle" init-method="connectToDatabase" destroy-method="disconnectFromDatabase">
        <!-- <constructor-arg ref="draw2DBean"/>  -->
         <constructor-arg index="0" ref="databaseObject"/>
-        <constructor-arg index="1" value="
-        ${database.username}"/>
+        <constructor-arg index="1" value="${database.username}"/>
     </bean>
     <bean id="rectangleBean" class="com.practice.bean.Rectangle" init-method="connectToDatabase" destroy-method="disconnectFromDatabase">
         <property name="draw2D" ref="draw2DBean"/>

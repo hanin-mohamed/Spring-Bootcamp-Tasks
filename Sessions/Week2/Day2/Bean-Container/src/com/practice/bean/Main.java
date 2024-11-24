@@ -11,7 +11,6 @@ public class Main {
 
         Shape circle = container.getBean("circleBean", Shape.class);
         circle.insertShape("Circle");
-
         ((  ClassPathXmlApplicationContext) container).close();
     }
 }
