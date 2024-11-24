@@ -1,0 +1,5 @@
+package com.dependencyinjection.bean;
+
+public class DatabaseUtil {
+    
+}

@@ -11,13 +11,13 @@
     <bean id="draw3DBean" class="com.dependencyinjection.bean.Draw3D" />
 
     <!--circle constructor bean-->
-    <bean id="circleBean" class="com.dependencyinjection.bean.Circle">
+    <bean id="circleBean" class="com.dependencyinjection.bean.Circle" scope="singleton">
         <constructor-arg ref="draw2DBean"/>
         <constructor-arg ref="draw3DBean"/>
     </bean>
 
     <!--square setter (property) bean-->
-    <bean id="squareBean" class="com.dependencyinjection.bean.Square">
+    <bean id="squareBean" class="com.dependencyinjection.bean.Square" scope="prototype">
         <property name="draw2D" ref="draw2DBean"/>
         <property name="draw3D" ref="draw3DBean"/>
     </bean>
