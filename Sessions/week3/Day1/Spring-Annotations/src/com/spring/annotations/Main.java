@@ -10,9 +10,11 @@ public class Main {
         ApplicationContext container = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         // Get Bean from Spring Container
-        CircleShape circle = container.getBean("circleShape", CircleShape.class);
-        RectangleShape rectangle = container.getBean("rectangleShape", RectangleShape.class);
+        Circle circle = container.getBean("circle", Circle.class);
+        Rectangle rectangle = container.getBean("rectangle", Rectangle.class);
         circle.getName();
         rectangle.getName();
+        rectangle.draw();
+        circle.draw();
     }
 }

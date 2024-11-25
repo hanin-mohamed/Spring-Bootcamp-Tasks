@@ -14,7 +14,7 @@
 
                 <!--    <Define Beans>  -->
 <!--    <bean id="circleBean"-->
-<!--          class="com.spring.annotations.CircleShape">-->
+<!--          class="com.spring.annotations.Circle">-->
 
 <!--    </bean>-->
 <!--    <bean id="rectangleBean"-->
