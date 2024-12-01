@@ -1,4 +1,4 @@
-package com.springconfig.annotations;
+package com.springconfig.annotations.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -6,20 +6,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope("prototype")
-public class Circle implements Shape{
-    private Draw2D draw2D;
+public class Circle implements Shape {
 
     @Autowired
-    public void setDraw2D(Draw2D draw2D) {
-        this.draw2D = draw2D;
-    }
+    private DatabaseOperation dbOperation;
 
     @Override
     public void getName() {
         System.out.println("Circle");
     }
-    public void draw(){
-        draw2D.draw("Circle");
+
+    @Override
+    public void insertShape(String shapeName) {
+        dbOperation.insertShape(shapeName);
     }
+
 
 }

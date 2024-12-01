@@ -1,4 +1,4 @@
-package com.springconfig.annotations;
+package com.springconfig.annotations.beans;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +18,11 @@ public class Rectangle implements Shape {
     @Override
     public void getName() {
         System.out.println("Rectangle");
+    }
+
+    @Override
+    public void insertShape(String shapeName) {
+
     }
 
     public void draw(){
