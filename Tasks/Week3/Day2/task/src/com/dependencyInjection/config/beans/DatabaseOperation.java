@@ -10,10 +10,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.Optional;
 
 @Component
 @Scope("singleton")
@@ -41,6 +39,7 @@ public class DatabaseOperation {
         }
     }
 
+
     public void save(Vehicle vehicle) {
         String sql = "INSERT INTO vehicle (type, brand) VALUES (?, ?)";
         try (PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -52,6 +51,51 @@ public class DatabaseOperation {
             System.out.println("Error saving vehicle: " + e.getMessage());
         }
     }
+
+    public Optional<Vehicle>findById(int id){
+        String sql = "SELECT * FROM vehicle WHERE id=?";
+        try(PreparedStatement pstmt = con.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            ResultSet rslt = pstmt.executeQuery();
+            if(rslt.next()){
+                String type = rslt.getString("type");
+                String brand = rslt.getString("brand");
+                return Optional.of(new Vehicle(type, brand));
+            }
+            else{
+                    System.out.println("No vehicle found with ID: " + id);
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return Optional.empty();
+    }
+
+    public void update(int id, String type, String brand){
+        String sql = "UPDATE vehicle SET type=?, brand=? WHERE id=?";
+        try(PreparedStatement pstmt = con.prepareStatement(sql)){
+            pstmt.setString(1, type);
+            pstmt.setString(2,brand);
+            pstmt.setInt(3,id);
+            pstmt.executeUpdate();
+            System.out.println(String.format("Vehicle %s updated: ",id));
+        } catch (SQLException e){
+            System.out.println(String.format("Error updating vehicle: %s " ,e.getMessage()));
+        }
+    }
+
+    public void deleteById(int id){
+        String sql ="DELETE FROM vehicle WHERE id=?";
+        try(PreparedStatement pstmt = con.prepareStatement(sql)){
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+            System.out.println("Vehicle deleted: " + id);
+        } catch (SQLException e){
+            System.out.println("Error deleting vehicle: " + e.getMessage());
+        }
+    }
+
     @PreDestroy
     public void disconnectFromDatabase() {
         try {
