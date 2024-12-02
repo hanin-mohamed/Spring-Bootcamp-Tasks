@@ -26,5 +26,11 @@ public class Main {
         vehicleDTO.insertVehicle(car);
         vehicleDTO.insertVehicle(plane);
         vehicleDTO.insertVehicle(bike);
+        vehicleDTO.deleteVehicle(1);
+        vehicleDTO.updateVehicle(6, "Car", "hono");
+        vehicleDTO.findVehicle(4);
+        vehicleDTO.findVehicle(9);
+
+
     }
 }
