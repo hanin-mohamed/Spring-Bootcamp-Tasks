@@ -13,9 +13,7 @@ import org.springframework.stereotype.Component;
 @ToString
 @Component
 public class Car extends Vehicle {
+    private VehicleType type;
+    private String brand;
 
-    private  DatabaseOperation databaseOperation;
-    public Car(DatabaseOperation databaseOperation) {
-        this.databaseOperation = databaseOperation;
-    }
 }

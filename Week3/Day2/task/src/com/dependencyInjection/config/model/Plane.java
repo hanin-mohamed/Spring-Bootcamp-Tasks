@@ -14,10 +14,8 @@ import org.springframework.stereotype.Component;
 @ToString
 @Component
 public class Plane extends Vehicle {
+    private VehicleType type;
+    private String brand;
 
-  private DatabaseOperation databaseOperation;
-    @Autowired
-    public void setDatabaseOperation(DatabaseOperation databaseOperation) {
-        this.databaseOperation = databaseOperation;
-    }
+
 }
