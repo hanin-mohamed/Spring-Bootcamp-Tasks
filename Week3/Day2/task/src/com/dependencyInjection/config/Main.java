@@ -31,7 +31,5 @@ public class Main {
         bike.setType(VehicleType.BIKE);
         bike.setBrand("kkkk");
         bikeController.saveVehicle(bike);
-
-
     }
 }

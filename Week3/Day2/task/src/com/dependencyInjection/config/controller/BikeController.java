@@ -31,4 +31,19 @@ public class BikeController implements VehicleController{
             System.out.println("Error saving vehicle: " + e.getMessage());
         }
     }
+
+
+//    @Override
+//    public void updateVehicle(Vehicle vehicle) {
+//        String sql = "UPDATE vehicle SET type=?, brand=? WHERE id=?";
+//        try(PreparedStatement pstmt = dbOperation.getCon().prepareStatement(sql)){
+//            pstmt.setString(1, ((Bike) vehicle).getType().toString());
+//            pstmt.setString(2,((Bike)vehicle).getBrand());
+//            pstmt.setInt(3,((Bike) vehicle).);
+//            pstmt.executeUpdate();
+//            System.out.println(String.format("Vehicle %s updated: ",id));
+//        } catch (SQLException e){
+//            System.out.println(String.format("Error updating vehicle: %s " ,e.getMessage()));
+//        }
+//    }
 }
