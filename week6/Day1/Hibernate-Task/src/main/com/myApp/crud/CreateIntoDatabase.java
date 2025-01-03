@@ -20,8 +20,8 @@ public class CreateIntoDatabase {
 
             User user1 = new User("Hanin","Ahmed");
             session.save(user1);
-//            User user2 = new User("Hanin","Ahmed");
-//            session.save(user2);
+            User user2 = new User("Hanin","Ahmed");
+            session.save(user2);
             // commit
             session.getTransaction().commit();
 
