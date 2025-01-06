@@ -3,6 +3,7 @@ package main.com.myApp.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 @Table(name = "user")
 @Setter
 @Getter
+@ToString
 @NoArgsConstructor
 public class User {
     @Id

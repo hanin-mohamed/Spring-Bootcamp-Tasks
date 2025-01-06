@@ -18,6 +18,13 @@ public class QueriesIntoDatabase {
 
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
+
+        // select al users from DB
+        List<User> users = session.createQuery("FROM User", User.class).getResultList();
+        for (User user : users) {
+            System.out.println(user);
+        }
+
         // aggregation functions
      List tot= session.createQuery("select sum(quantity) from Product").getResultList();
      List count= session.createQuery("select count(*) from Product where price>90").getResultList();
