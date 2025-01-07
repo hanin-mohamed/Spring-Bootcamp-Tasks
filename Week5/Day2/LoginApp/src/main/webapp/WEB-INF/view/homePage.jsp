@@ -8,24 +8,24 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 
-    <script>
-        // JS Function to validate passwords
-        function validatePasswords(event) {
-            // Get the password and confirm password fields
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirmPass").value;
-            // Check if passwords match
-            if (password !== confirmPassword) {
-                // Prevent form submission
-                event.preventDefault();
+<%--    <script>--%>
+<%--        // JS Function to validate passwords--%>
+<%--        function validatePasswords(event) {--%>
+<%--            // Get the password and confirm password fields--%>
+<%--            const password = document.getElementById("password").value;--%>
+<%--            const confirmPassword = document.getElementById("confirmPass").value;--%>
+<%--            // Check if passwords match--%>
+<%--            if (password !== confirmPassword) {--%>
+<%--                // Prevent form submission--%>
+<%--                event.preventDefault();--%>
 
-                // Display error message
-                const errorMessage = document.getElementById("passwordError");
-                errorMessage.style.display = "block";
-                errorMessage.innerText = "Passwords do not match!";
-            }
-        }
-    </script>
+<%--                // Display error message--%>
+<%--                const errorMessage = document.getElementById("passwordError");--%>
+<%--                errorMessage.style.display = "block";--%>
+<%--                errorMessage.innerText = "Passwords do not match!";--%>
+<%--            }--%>
+<%--        }--%>
+<%--    </script>--%>
 </head>
 <body class="bg-light">
 <div class="container mt-5">
@@ -63,8 +63,8 @@
                     <form:errors path="confirmPass" cssClass="alert-danger"/>
                 </div>
 
-                <!-- Error Message for Password Mismatch -->
-                <p id="passwordError" style="color: #fd5252; display: none;"></p>
+<%--                <!-- Error Message for Password Mismatch -->--%>
+<%--                <p id="passwordError" style="color: #fd5252; display: none;"></p>--%>
 
                 <div class="form-group">
                     <input type="submit" class="btn btn-danger btn-block" />

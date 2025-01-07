@@ -24,6 +24,10 @@ public class HomeController {
         if (result.hasErrors()){
             return "homePage";
         }
+        if (!employeeModel.getPassword().equals(employeeModel.getConfirmPass())) {
+            result.rejectValue("confirmPass", "error.confirmPass", "Passwords do not match");
+            return "homePage";
+        }
         return "resultPage";
     }
 

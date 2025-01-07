@@ -21,7 +21,7 @@ public class EmployeeModel {
     private String email;
 
 
-    @NotEmpty
+
     @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
 
