@@ -2,6 +2,7 @@ package main.com.myApp.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import main.com.myApp.customAnnotations.PasswordMatches;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Email;
@@ -12,6 +13,7 @@ import javax.validation.constraints.Size;
 @Component
 @Setter
 @Getter
+@PasswordMatches
 public class EmployeeModel {
     @NotBlank(message = "Username is required")
     private  String name;
