@@ -23,6 +23,7 @@ public class Person {
     @Column(name = "last_name")
     private String lastName;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "date_of_birth")
     private Date birthDate;
 
